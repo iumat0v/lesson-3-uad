@@ -36,42 +36,57 @@ A component will not appear at all if its value happens to be zero. Hence, 1 min
 *
 * * */
 function formatDuration (seconds) {
-
+    let t = []
+    let h = 0
+    let y = 0
+    let d = 0
+    let m = 0
+    let str = ''
+    if (seconds == 0) s = 'now';
+    if (seconds >= 31536000) {
+        y = (seconds - seconds % 31536000) / 31536000
+        seconds = seconds % 31536000
+    }
+    if (seconds >= 86400) {
+        d = (seconds - seconds % 86400) / 86400
+        seconds = seconds % 86400
+    }
+    if (seconds >= 3600) {
+        h = (seconds - seconds % 3600) / 3600
+        seconds = seconds % 3600
+    }
+    if (seconds >= 60) {
+        m = (seconds - seconds % 60) / 60
+        seconds = seconds % 60
+    };
+    if (y != 0) {
+        if (y > 1) t.push(`${y} years`);
+        else t.push(`${y} year`);
+    };
+    if (d != 0) {
+        if (d > 1) t.push(`${d} days`);
+        else t.push(`${d} day`);
+    };
+    if (h != 0) {
+        if (h > 1) t.push(`${h} hours`);
+        else t.push(`${h} hour`);
+    };
+    if (m != 0) {
+        if (m > 1) t.push(`${m} minutes`);
+        else t.push(`${m} minute`);
+    };
+    if (seconds != 0) {
+        if (seconds > 1) t.push(`${seconds} seconds`);
+        else t.push(`${seconds} second`);
+    };
+    for (i = 0; i < t.length; i++) {
+        let del = ', '
+        if (i == t.length - 1) del = '';
+        else if (i == t.length - 2) del = ' and ';
+        str = str + t[i] + del
+    }
+    return str
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

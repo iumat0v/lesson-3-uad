@@ -3,9 +3,14 @@
 * */
 
 function abs(array) {
+    let s = 0
+    for (i = 0; i < array.length; i++) {
+        s = s + array[i]
+    }
+    s = s / array.length
 
+    return Number(s.toFixed(1))
 }
-
 
 
 

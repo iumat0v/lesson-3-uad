@@ -12,7 +12,15 @@
 * */
 
 function fibonacci(num) {
-
+    let x0 = 0
+    let x1 = 1
+    let c
+    for (i = 0; i < num; i++) {
+        c = x0
+        x0 = x1
+        x1 = x0 + c
+    }
+    return x0
 }
 
 

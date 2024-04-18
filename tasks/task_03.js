@@ -4,7 +4,15 @@
 * */
 
 function getVowelsCount(str) {
-
+    let d = ["a", "e", "i", "o", "u", "y"]
+    let c = 0
+    let b = str.split("")
+    for (i = 0; i < b.length; i++) {
+        for (j = 0; j < 6; j++) {
+            if (b[i] == d[j]) c++;
+        }
+    }
+    return c
 }
 
 

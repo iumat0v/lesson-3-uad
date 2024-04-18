@@ -6,10 +6,22 @@
 Note: оценки всегда будут уникальными (поэтому никаких повторяющихся значений) */
 
 function myLanguages(results) {
-
+    let a = [];
+    let c;
+    for (key in results) {
+        if (results[key] >= 60) a.push(key);
+    }
+    for (i = 0; i < a.length - 1; i++) {
+        for (j = 0; j < a.length - 1 - i; j++) {
+            if (results[a[j]] < results[a[j + 1]]) {
+                c = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = c;
+            }
+        }
+    }
+    return a
 }
-
-
 
 
 
